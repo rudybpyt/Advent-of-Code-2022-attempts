@@ -1,7 +1,7 @@
 # https://adventofcode.com/2022/day/1
 
 # part 1
-file1 = open('input.txt', 'r')
+file1 = open('day1/input.txt', 'r')
 Lines = file1.readlines()
 totalCalories = []
 temp = 0

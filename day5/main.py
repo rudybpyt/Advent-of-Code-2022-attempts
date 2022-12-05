@@ -1,5 +1,6 @@
+# https://adventofcode.com/2022/day/5
 # part 1
-file1 = open("input.txt","r")
+file1 = open("day5/input.txt","r")
 Lines = file1.readlines()
 i = 0
 cols =[[],[],[],[],[],[],[],[],[]]
@@ -58,5 +59,4 @@ for line in Lines:
 for i in range(len(cols)):
     output += cols[i][-1]
     output2 += cols2[i][-1]
-print(f"Part 1:{output}")
-print(f"Part 2:{output2}")
+print(f"Part 1:{output}\nPart 2:{output2}")

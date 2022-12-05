@@ -1,20 +1,9 @@
-file1 = open("input.txt","r")
+# https://adventofcode.com/2022/day/4
+
+file1 = open("day4/input.txt","r")
 Lines = file1.readlines()
-count = 0
+count = [0,0]
 # part 1
-for line in Lines:
-    a = line.replace("\n", "").split(",")
-    groups = []
-    for i in a:
-        minMax = i.split("-")
-        groups.append(minMax)
-    if int(groups[1][0]) <= int(groups[0][0]) and int(groups[0][1]) <= int(groups[1][1]):
-        count += 1
-    elif int(groups[0][0]) <= int(groups[1][0]) and int(groups[1][1]) <= int(groups[0][1]):
-        count += 1
-print(count)
-# part 2
-count = 0
 for line in Lines:
     a = line.replace("\n", "").split(",")
     groups = []
@@ -23,6 +12,9 @@ for line in Lines:
     for i in a:
         minMax = i.split("-")
         groups.append(minMax)
+    if (int(groups[1][0]) <= int(groups[0][0]) and int(groups[0][1]) <= int(groups[1][1])) or (int(groups[0][0]) <= int(groups[1][0]) and int(groups[1][1]) <= int(groups[0][1])):
+        count[0] += 1
+    # part 2
     if int(groups[0][0]) == int(groups[0][1]):
         first = [int(groups[0][0])]
     elif int(groups[0][0]) != int(groups[0][1]):
@@ -41,6 +33,6 @@ for line in Lines:
                 break
     for k in first:
         if k in second:
-            count += 1
+            count[1] += 1
             break
-print(count)
+print(f"Part 1:{count[0]}\nPart 2:{count[1]}")
