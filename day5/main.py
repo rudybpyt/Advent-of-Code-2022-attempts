@@ -4,10 +4,9 @@ file1 = open("input.txt","r")
 Lines = file1.readlines()
 i = 0
 cols =[[],[],[],[],[],[],[],[],[]]
-
+output = ""
 for line in Lines:
     i += 1
-    print(i)
     if i <= 8:
         temp = list(line)
         if len(temp) > 0:
@@ -31,27 +30,25 @@ for line in Lines:
                 if len(temp) >= 35:
                     if temp[33] != " ":
                         cols[8].append(temp[33])
-            print(cols)
     if i == 9:
         for x in range(9):
             cols[x].reverse()
-            print(f"hello  {cols}")
     if i > 10:
         temp = line.split()
         size = int(temp[1])
         fromcol = int(temp[3])-1
         tocol = int(temp[5])-1
-        print(size,fromcol,tocol)
         for x in range(size):
             cols[tocol].append(cols[fromcol][-1])
             cols[fromcol].pop(-1)
-        print(cols)
+for i in range(len(cols)):
+    output += cols[i][-1]
+print(output)
 # part 2
 i = 0
 cols =[[],[],[],[],[],[],[],[],[]]
 for line in Lines:
     i += 1
-    print(i)
     if i <= 8:
         temp = list(line)
         if len(temp) > 0:
@@ -75,18 +72,18 @@ for line in Lines:
                 if len(temp) >= 35:
                     if temp[33] != " ":
                         cols[8].append(temp[33])
-            print(cols)
     if i == 9:
         for x in range(9):
             cols[x].reverse()
-            print(f"hello  {cols}")
     if i > 10:
         temp = line.split()
         size = int(temp[1])
         fromcol = int(temp[3])-1
         tocol = int(temp[5])-1
-        print(size,fromcol,tocol)
         for x in range(size):
             cols[tocol].append(cols[fromcol][(-1 * size)+ x])
             cols[fromcol].pop((-1 * size)+ x)
-        print(cols)
+output = ""
+for i in range(len(cols)):
+    output += cols[i][-1]
+print(output)
