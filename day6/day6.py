@@ -1,5 +1,8 @@
+# https://adventofcode.com/2022/day/6
+
 file1 = open("day6/input.txt","r")
 Line = list(file1.readline())
+# part 1
 thing = []
 count = 0
 c = 0
@@ -15,6 +18,7 @@ for i in range(len(Line)):
         print(temp)
         print(f"Part 1:{i+4}")
         break
+# part 2
 thing = []
 for i in range(len(Line)):
     temp = []
